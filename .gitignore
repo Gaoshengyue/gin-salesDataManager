@@ -1,0 +1,8 @@
+.idea/
+.DS_Store
+vendor/*
+.vscode/*
+!runtime/qrcode/bg.jpg
+!runtime/fonts
+!runtime/logs
+/conf/app.ini

@@ -1,0 +1,625 @@
+definitions:
+  StatementControllerResponseSchema.BaseDataResponseSchema:
+    properties:
+      code:
+        type: integer
+      data:
+        $ref: '#/definitions/StatementSchema.DataOverviewBaseDataSchema'
+      msg:
+        type: string
+    type: object
+  StatementControllerResponseSchema.NetPowerPolicyDataResponseSchema:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/StatementSchema.NetPowerPolicySchema'
+        type: array
+      msg:
+        type: string
+    type: object
+  StatementControllerResponseSchema.ProductDataResponseSchema:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/StatementSchema.DataOverviewProductDistribution'
+        type: array
+      msg:
+        type: string
+    type: object
+  StatementControllerResponseSchema.TSRMonthlyPerformanceResponseSchema:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/StatementSchema.TSRMonthlyPerformance'
+        type: array
+      msg:
+        type: string
+    type: object
+  StatementSchema.DataOverviewBaseDataSchema:
+    properties:
+      call_connect_rate:
+        description: 接通率
+        type: number
+      call_time_mean:
+        description: 平均外呼时长
+        type: number
+      total_call_count:
+        description: 总外呼量
+        type: integer
+      total_customer_count:
+        description: 总客户量
+        type: integer
+    type: object
+  StatementSchema.DataOverviewProductDistribution:
+    properties:
+      product_count:
+        description: 产品数量
+        type: integer
+      product_name:
+        description: 产品名称
+        type: string
+    type: object
+  StatementSchema.NetPowerPolicySchema:
+    properties:
+      activeMonth:
+        description: 活动月
+        type: integer
+      annualizedPremium:
+        description: 年化保费
+        type: number
+      batchName:
+        description: 批次名称
+        type: string
+      insuredAmount:
+        description: 保额
+        type: number
+      policyStatus:
+        description: 保单状态
+        type: string
+      productName:
+        description: 产品名称
+        type: string
+      tsrid:
+        description: 坐席ID
+        type: integer
+      underwritingTime:
+        description: 承保时间
+        type: string
+    type: object
+  StatementSchema.TSRMonthlyPerformance:
+    properties:
+      activeMonth:
+        description: 活动月
+        type: number
+      callCount:
+        description: 拨打次数
+        type: integer
+      connectCount:
+        description: 接通次数
+        type: integer
+      contactListCount:
+        description: 接触名单量
+        type: integer
+      firstConnectCount:
+        description: 首拨接通量
+        type: integer
+      secondConnectCount:
+        description: 二次接通量
+        type: integer
+      tsrid:
+        description: TSR小宝工号
+        type: integer
+      tsrname:
+        description: TSR姓名
+        type: string
+    type: object
+  TSRPortraitControllerRequestSchema.TSRGradeControllerRequest:
+    properties:
+      call_count_rate:
+        description: 呼叫次数比率
+        type: number
+      call_count_standard:
+        description: 呼叫次数标准
+        type: number
+      call_count_time_rate:
+        description: 次均通时比率
+        type: number
+      call_count_time_standard:
+        description: 次均通时标准
+        type: number
+      call_time_rate:
+        description: 呼叫通时比率
+        type: number
+      call_time_standard:
+        description: 呼叫通时标准
+        type: number
+      end_time:
+        description: 结束时间
+        type: string
+      phone_list:
+        description: 手机数组
+        items:
+          type: integer
+        type: array
+      policy_premium_mean_rate:
+        description: 平均保费比率
+        type: number
+      policy_premium_mean_standard:
+        description: 平均保费标准
+        type: number
+      premium_grade_rate:
+        description: 净承保费比率
+        type: number
+      premium_standard:
+        description: 净承保费标准
+        type: number
+      start_time:
+        description: 开始时间
+        type: string
+      tsr_monthly_call_grade_rate:
+        description: 签单月拨打表现比率
+        type: number
+      tsr_monthly_call_grade_standard:
+        description: 签单月拨打表现标准
+        type: number
+    type: object
+  TSRPortraitControllerRequestSchema.TSRTopControllerRequest:
+    properties:
+      current:
+        description: 翻页参数
+        type: integer
+      customer_age_bottom:
+        description: 客户年龄下限
+        type: integer
+      customer_age_top:
+        description: 客户年龄上限
+        type: integer
+      end_time:
+        description: 结束时间
+        type: string
+      name_list_type:
+        description: 名单类型
+        type: string
+      order_place:
+        description: 成单区域
+        type: string
+      page_size:
+        description: 翻页参数
+        type: integer
+      phone_list:
+        description: 手机数组
+        items:
+          type: integer
+        type: array
+      premiums_five_star:
+        description: 净承保费五星排名前多少
+        type: number
+      premiums_four_star:
+        description: 净承保费四星排名前多少
+        type: number
+      premiums_one_star:
+        description: 净承保费一星排名前多少
+        type: number
+      premiums_three_star:
+        description: 净承保费三星排名前多少
+        type: number
+      premiums_two_star:
+        description: 净承保费两星排名前多少
+        type: number
+      product_type:
+        description: 产品类型
+        type: string
+      quality_five_star:
+        description: 质检率五星排名前多少
+        type: number
+      quality_four_star:
+        description: 质检率四星排名前多少
+        type: number
+      quality_one_star:
+        description: 质检率一星排名前多少
+        type: number
+      quality_three_star:
+        description: 质检率三星排名前多少
+        type: number
+      quality_two_star:
+        description: 质检率两星排名前多少
+        type: number
+      renewal_five_star:
+        description: 继续率五星排名前多少
+        type: number
+      renewal_four_star:
+        description: 继续率四星排名前多少
+        type: number
+      renewal_one_star:
+        description: 继续率一星排名前多少
+        type: number
+      renewal_three_star:
+        description: 继续率三星排名前多少
+        type: number
+      renewal_two_star:
+        description: 继续率两星排名前多少
+        type: number
+      start_time:
+        description: 开始时间
+        type: string
+    type: object
+  TSRPortraitControllerResponseSchema.TSRGradeControllerResponseSchema:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/TSRPortraitSchema.TSRGradeDetail'
+        type: array
+      msg:
+        type: string
+    type: object
+  TSRPortraitControllerResponseSchema.TSRTopControllerResponseSchema:
+    properties:
+      code:
+        type: integer
+      data:
+        items:
+          $ref: '#/definitions/TSRPortraitSchema.TsrStarPageResponseSchema'
+        type: array
+      msg:
+        type: string
+    type: object
+  TSRPortraitSchema.TSRGradeDetail:
+    properties:
+      call_connect_count:
+        description: 呼叫接通次数
+        type: integer
+      call_count_day_mean:
+        description: 日均通次
+        type: number
+      call_count_grade:
+        description: 通次评分
+        type: number
+      call_count_time_grade:
+        description: 次均通时评分
+        type: number
+      call_count_time_mean:
+        description: 次均通时
+        type: number
+      call_time_day_mean:
+        description: 日均通时
+        type: number
+      call_time_grade:
+        description: 通时评分
+        type: number
+      call_time_total:
+        description: 呼叫总时长
+        type: integer
+      name_list_call_count:
+        description: 名单分配量
+        type: integer
+      name_list_call_count_mean:
+        description: 批次名单平均拨打次数
+        type: number
+      name_list_call_grade:
+        description: 名单拨打次数评分
+        type: number
+      name_list_customer_count:
+        description: 名单客户拨打次数
+        type: integer
+      policy_count:
+        description: 保单量
+        type: integer
+      policy_total_premium:
+        description: 保单总额
+        type: number
+      record_count:
+        description: 记录次数(出勤次数)
+        type: integer
+      tsr_grade:
+        description: 坐席最终评分
+        type: number
+      tsr_id:
+        description: 坐席ID
+        type: integer
+      tsr_name:
+        description: 坐席名称
+        type: string
+      tsr_policy_grade:
+        description: 坐席月净保费评分
+        type: number
+      tsr_policy_premium_mean:
+        description: 坐席平均保单保费
+        type: number
+      tsr_policy_premium_mean_grade:
+        description: 坐席件均评分
+        type: number
+      tsr_skill_grade:
+        description: 坐席技能评分
+        type: number
+      tsr_status_grade:
+        description: 坐席状态评分
+        type: number
+    type: object
+  TSRPortraitSchema.TsrStarPageResponseSchema:
+    properties:
+      current:
+        description: 翻页参数
+        type: integer
+      pageSize:
+        description: 翻页参数
+        type: integer
+      total:
+        description: 翻页参数
+        type: integer
+      tsrList:
+        description: 翻页数据
+        items:
+          $ref: '#/definitions/TSRPortraitSchema.TsrStarResponseSchema'
+        type: array
+    type: object
+  TSRPortraitSchema.TsrStarResponseSchema:
+    properties:
+      Top:
+        description: 排行
+        type: integer
+      policyStar:
+        description: 续期评星
+        type: integer
+      premiumsStar:
+        description: 业绩评星
+        type: integer
+      qualifiedStar:
+        description: 质检评星
+        type: integer
+      totalStar:
+        description: 总星数
+        type: integer
+      tsrId:
+        description: 员工ID
+        type: integer
+      tsrName:
+        description: 员工姓名
+        type: string
+    type: object
+  app.Response:
+    properties:
+      code:
+        type: integer
+      data:
+        type: object
+      msg:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: An example of gin
+  title: Golang Gin API
+  version: "1.0"
+paths:
+  /api/auth/addClient:
+    post:
+      parameters:
+      - description: app_id
+        in: body
+        name: app_id
+        required: true
+        schema:
+          type: string
+      - description: app_secret
+        in: body
+        name: app_secret
+        required: true
+        schema:
+          type: string
+      - description: desc
+        in: body
+        name: desc
+        required: true
+        schema:
+          type: string
+      - description: app_name
+        in: body
+        name: app_name
+        required: true
+        schema:
+          type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Add Client
+  /api/v1/tags/import:
+    post:
+      parameters:
+      - description: Image File
+        in: formData
+        name: image
+        required: true
+        type: file
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Import Image
+  /auth:
+    get:
+      parameters:
+      - description: app_id
+        in: query
+        name: app_id
+        required: true
+        type: string
+      - description: app_secret
+        in: query
+        name: app_secret
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/app.Response'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: Get Auth
+  /projectData/AchievementMoon:
+    get:
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: AchievementMoon  按月份统计
+  /projectData/AchievementSummary:
+    get:
+      responses:
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: AchievementSummary  按月份统计
+  /projectData/GetDataOverviewBaseData:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/StatementControllerResponseSchema.BaseDataResponseSchema'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: GetDataOverviewBaseData
+  /projectData/GetDataOverviewProductData:
+    get:
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/StatementControllerResponseSchema.ProductDataResponseSchema'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: GetDataOverviewProductData
+  /projectData/GetNetPowerPolicyData:
+    get:
+      parameters:
+      - description: 每页数据大小
+        in: query
+        name: page_size
+        type: number
+      - description: 当前页码
+        in: query
+        name: current
+        type: number
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/StatementControllerResponseSchema.NetPowerPolicyDataResponseSchema'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: GetNetPowerPolicyData
+  /projectData/GetTSRGrade:
+    post:
+      parameters:
+      - description: 保单平均保费评分标准
+        in: body
+        name: gradeBody
+        schema:
+          $ref: '#/definitions/TSRPortraitControllerRequestSchema.TSRGradeControllerRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/TSRPortraitControllerResponseSchema.TSRGradeControllerResponseSchema'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: GetTSRGrade
+  /projectData/GetTSRMonthlyPerformanceData:
+    get:
+      parameters:
+      - description: 每页数据大小
+        in: query
+        name: page_size
+        type: number
+      - description: 当前页码
+        in: query
+        name: current
+        type: number
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/StatementControllerResponseSchema.TSRMonthlyPerformanceResponseSchema'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: GetTSRMonthlyPerformanceData
+  /projectData/GetTSRTop:
+    post:
+      parameters:
+      - description: 坐席排名
+        in: body
+        name: topBody
+        schema:
+          $ref: '#/definitions/TSRPortraitControllerRequestSchema.TSRTopControllerRequest'
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/TSRPortraitControllerResponseSchema.TSRTopControllerResponseSchema'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: GetTSRTop
+  /projectData/GetTrafficMeasurementData:
+    get:
+      parameters:
+      - description: 每页数据大小
+        in: query
+        name: page_size
+        type: number
+      - description: 当前页码
+        in: query
+        name: current
+        type: number
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/StatementControllerResponseSchema.NetPowerPolicyDataResponseSchema'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/app.Response'
+      summary: GetTrafficMeasurementData
+swagger: "2.0"

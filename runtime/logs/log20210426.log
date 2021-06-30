@@ -1,0 +1,4 @@
+[ERROR][UserDetailSchema.go:41]2021/04/26 14:31:37 [(BadValue) $in needs an array]
+[ERROR][TSRPortraitTopService.go:26]2021/04/26 14:31:37 [(BadValue) $in needs an array]
+[ERROR][UserDetailSchema.go:41]2021/04/26 14:39:52 [(BadValue) $in needs an array]
+[ERROR][TSRPortraitTopService.go:26]2021/04/26 14:39:52 [(BadValue) $in needs an array]
